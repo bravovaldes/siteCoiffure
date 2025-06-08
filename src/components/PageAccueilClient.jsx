@@ -18,7 +18,7 @@ export default function PageAccueilClient() {
   const [selectedDay, setSelectedDay] = useState(convertedIndex);
 
   return (
-    <div className="bg-[#FAF9F6] text-[#111] min-h-screen w-full px-4 md:px-10 pt-24 pb-10">
+    <div className="bg-[#FAF9F6] text-[#111] min-h-screen w-full px-4 md:px-10 pt-10 pb-10">
       <div className="max-w-7xl mx-auto space-y-10">
 
         {/* Slider d'images */}
@@ -29,18 +29,20 @@ export default function PageAccueilClient() {
           {/* Mobile */}
           <div className="flex flex-wrap gap-2 md:hidden">
             {['AUJOURD’HUI', 'DEMAIN', 'AUTRE'].map((label, i) => (
-              <button
+                <button
                 key={i}
-                className={`px-4 py-1.5 text-sm rounded-full font-medium border ${
-                  i === 0
-                    ? 'bg-[#1F60FF] text-white shadow'
-                    : 'bg-white text-[#1F60FF] border-[#1F60FF]'
-                } transition hover:scale-105`}
-              >
+                className={`px-4 py-1.5 text-sm rounded-full font-medium border transition hover:scale-105
+                    ${i === 0
+                    ? 'bg-[#1F60FF] text-white shadow' // Actif : bien bleu
+                    : 'bg-[#F0F0F0] text-gray-800 border-gray-300' // Inactifs : neutres
+                    }`}
+                >
                 {label}
-              </button>
+                </button>
             ))}
-          </div>
+            </div>
+
+
 
           {/* Desktop */}
           <div className="hidden md:flex flex-wrap justify-center gap-3">

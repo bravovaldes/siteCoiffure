@@ -9,10 +9,12 @@ import Navbar  from './components/Navbar';
 import PolitiqueAnnulation from './components/PolitiqueAnnulation';
 import Temoignages from './components/Temoignages';
 import WhatsAppButton from './components/WhatsAppButton';
+import AdresseSalon from './components/AdresseSalon';
 function App() {
   return (
     <div>
       <Navbar />
+      <AdresseSalon/>
       <PageAccueilClient />
       <PolitiqueAnnulation />
       <Temoignages />

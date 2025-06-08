@@ -18,13 +18,12 @@ export default function ImageSlider() {
   return (
     <div className="w-full max-w-7xl mx-auto">
       {/* Mobile : une image */}
-      <div className="block md:hidden">
+      <div className="block md:hidden rounded-2xl overflow-hidden shadow-md">
         <img
-        src={images[current]}
-        alt="Salon"
-        className="w-full h-[250px] md:h-[400px] object-cover transition duration-300"
+          src={images[current]}
+          alt="Salon"
+          className="w-full h-[250px] object-cover transition duration-300"
         />
-
       </div>
 
       {/* Desktop : 3 images côte à côte */}
@@ -32,18 +31,19 @@ export default function ImageSlider() {
         {[0, 1, 2].map((offset) => {
           const index = (current + offset) % images.length;
           return (
-            <img
-              key={index}
-              src={images[index]}
-              alt={`Salon ${index}`}
-              className="w-1/3 h-[300px] object-cover transition duration-500"
-            />
+            <div key={index} className="w-1/3 rounded-2xl overflow-hidden shadow-md">
+              <img
+                src={images[index]}
+                alt={`Salon ${index}`}
+                className="w-full h-[300px] object-cover transition duration-500"
+              />
+            </div>
           );
         })}
       </div>
 
       {/* Petits points d’indication */}
-      <div className="flex justify-center mt-2 space-x-2">
+      <div className="flex justify-center mt-3 space-x-2">
         {images.map((_, index) => (
           <span
             key={index}
