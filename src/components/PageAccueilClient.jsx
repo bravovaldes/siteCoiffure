@@ -1,0 +1,96 @@
+import { useState } from 'react';
+import logo from '../assets/logo.jpg';
+import { FaRegClock, FaCut } from 'react-icons/fa';
+import ImageSlider from './ImageSlider';
+
+export default function PageAccueilClient() {
+  const slots = [
+    { id: 1, start: '10:00', end: '11:00', icon: <FaCut /> },
+    { id: 2, start: '11:15', end: '12:15', icon: <FaRegClock /> },
+    { id: 3, start: '13:00', end: '14:00', icon: <FaCut /> },
+    { id: 4, start: '14:15', end: '15:15', icon: <FaRegClock /> },
+  ];
+
+  const daysOfWeek = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+  const todayIndex = new Date().getDay();
+  const convertedIndex = todayIndex === 0 ? 6 : todayIndex - 1;
+
+  const [selectedDay, setSelectedDay] = useState(convertedIndex);
+
+  return (
+    <div className="bg-[#FAF9F6] text-[#111] min-h-screen w-full px-4 md:px-10 pt-24 pb-10">
+      <div className="max-w-7xl mx-auto space-y-10">
+
+        {/* Slider d'images */}
+        <ImageSlider />
+
+        {/* Sélecteurs de dates */}
+        <div className="flex justify-center">
+          {/* Mobile */}
+          <div className="flex flex-wrap gap-2 md:hidden">
+            {['AUJOURD’HUI', 'DEMAIN', 'AUTRE'].map((label, i) => (
+              <button
+                key={i}
+                className={`px-4 py-1.5 text-sm rounded-full font-medium border ${
+                  i === 0
+                    ? 'bg-[#1F60FF] text-white shadow'
+                    : 'bg-white text-[#1F60FF] border-[#1F60FF]'
+                } transition hover:scale-105`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+
+          {/* Desktop */}
+          <div className="hidden md:flex flex-wrap justify-center gap-3">
+            {daysOfWeek.map((day, index) => (
+              <button
+                key={day}
+                onClick={() => setSelectedDay(index)}
+                className={`px-4 py-1.5 text-sm rounded-full font-medium border ${
+                  selectedDay === index
+                    ? 'bg-[#1F60FF] text-white shadow'
+                    : 'bg-white text-[#1F60FF] border-[#1F60FF]'
+                } transition hover:scale-105`}
+              >
+                {day}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Titre */}
+        <h2 className="text-3xl md:text-4xl font-bold text-center">
+          Créneaux disponibles
+        </h2>
+
+        {/* Timeline alignée */}
+        <div className="relative border-l-2 border-[#1F60FF] ml-8 md:ml-16 space-y-6">
+          {slots.map((slot) => (
+            <div key={slot.id} className="relative pl-10 flex items-start gap-4">
+              {/* Icône dans un cercle bien centré */}
+              <div className="absolute -left-[1.45rem] top-1/2 -translate-y-1/2">
+                <div className="w-10 h-10 bg-white border-2 border-[#1F60FF] rounded-full flex items-center justify-center text-[#1F60FF] text-lg">
+                  {slot.icon}
+                </div>
+              </div>
+
+              {/* Carte style politique avec bande à gauche */}
+              <div className="bg-white border-l-4 border-[#1F60FF] shadow-sm px-6 py-4 rounded-xl flex items-center justify-between w-full gap-4">
+
+                <div className="text-base md:text-lg font-medium">
+                  {slot.start} – {slot.end}
+                </div>
+                <button className="bg-[#1F60FF] text-white px-5 py-2 text-sm font-semibold rounded-full shadow hover:scale-105 hover:bg-[#174dcc] transition whitespace-nowrap">
+                  RÉSERVER
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  );
+}
