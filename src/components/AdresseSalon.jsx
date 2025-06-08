@@ -14,7 +14,7 @@ export default function AdresseSalon() {
     <div className="flex items-center justify-center gap-2 text-[#1F60FF] text-base md:text-lg">
       <FaMapMarkerAlt className="text-xl" />
       <span className="text-[#111] font-semibold">
-        555 rue Chabannel, Chicoutimi
+        55 rue saint Luc, Chicoutimi
       </span>
     </div>
 

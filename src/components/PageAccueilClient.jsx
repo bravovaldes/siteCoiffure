@@ -20,10 +20,13 @@ export default function PageAccueilClient() {
 
   return (
     <div className="bg-[#FAF9F6] text-[#111] min-h-screen w-full px-4 md:px-10 pt-10 pb-10">
-      <div className="max-w-7xl mx-auto space-y-10">
+      <div className="w-full space-y-10">
+
 
         {/* Slider d'images */}
-        <ImageSlider />
+        <div className="w-full px-4 md:px-10">
+          <ImageSlider />
+        </div>
 
         {/* Sélecteurs de dates */}
         <div className="flex justify-center">
@@ -32,7 +35,7 @@ export default function PageAccueilClient() {
             {['AUJOURD’HUI', 'DEMAIN', 'AUTRE'].map((label, i) => (
                 <button
                 key={i}
-                className={`px-4 py-1.5 text-sm rounded-full font-medium border transition hover:scale-105
+                className={`px-4 py-1.5 text-sm rounded-full font-medium border transition hover:scale-105 
                     ${i === 0
                     ? 'bg-[#1F60FF] text-white shadow' // Actif : bien bleu
                     : 'bg-[#F0F0F0] text-gray-800 border-gray-300' // Inactifs : neutres
@@ -46,21 +49,22 @@ export default function PageAccueilClient() {
 
 
           {/* Desktop */}
-          <div className="hidden md:flex flex-wrap justify-center gap-3">
+           <div className="hidden md:flex flex-wrap justify-center gap-3">
             {daysOfWeek.map((day, index) => (
               <button
                 key={day}
                 onClick={() => setSelectedDay(index)}
-                className={`px-4 py-1.5 text-sm rounded-full font-medium border ${
+                className={`px-4 py-1.5 text-sm rounded-full font-medium border transition hover:scale-105 ${
                   selectedDay === index
                     ? 'bg-[#1F60FF] text-white shadow'
-                    : 'bg-white text-[#1F60FF] border-[#1F60FF]'
-                } transition hover:scale-105`}
+                    : 'bg-[#F0F0F0] text-gray-800 border-gray-300'
+                }`}
               >
                 {day}
               </button>
             ))}
           </div>
+
         </div>
 
         {/* Titre */}
@@ -71,7 +75,7 @@ export default function PageAccueilClient() {
         <div className="space-y-6">
         {slots.map((slot) => (
             <div key={slot.id} className="flex justify-center">
-            <div className="bg-white border-l-4 border-[#1F60FF] shadow-sm px-6 py-4 rounded-xl flex items-center justify-between w-full max-w-5xl gap-4">
+            <div className="bg-white border-l-4 border-[#1F60FF] shadow-sm px-6 py-4 rounded-xl flex items-center justify-between w-full  gap-4">
                 <div className="text-base md:text-lg font-medium">
                 {slot.start} – {slot.end}
                 </div>
