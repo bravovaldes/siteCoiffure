@@ -2,7 +2,7 @@ import { FaInfoCircle } from 'react-icons/fa';
 
 export default function PolitiqueAnnulation() {
   return (
-    <div className="bg-white border-l-4 border-[#1F60FF] shadow-md px-6 py-5 rounded-xl flex flex-col md:flex-row items-start gap-4 mx-4 md:mx-auto max-w-4xl mt-12">
+    <div className="bg-white border-l-4 border-[#1F60FF] shadow-md px-6 py-5 rounded-xl flex flex-col md:flex-row items-start gap-4 mx-4 md:mx-auto max-w-4xl mt-12 mb-12">
       <div className="text-[#1F60FF] text-2xl">
         <FaInfoCircle />
       </div>

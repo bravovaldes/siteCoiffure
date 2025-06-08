@@ -2,6 +2,7 @@ import { useState } from 'react';
 import logo from '../assets/logo.jpg';
 import { FaRegClock, FaCut } from 'react-icons/fa';
 import ImageSlider from './ImageSlider';
+import { FaChevronRight } from 'react-icons/fa';
 
 export default function PageAccueilClient() {
   const slots = [
@@ -67,30 +68,21 @@ export default function PageAccueilClient() {
           Créneaux disponibles
         </h2>
 
-        {/* Timeline alignée */}
-        <div className="relative border-l-2 border-[#1F60FF] ml-8 md:ml-16 space-y-6">
-          {slots.map((slot) => (
-            <div key={slot.id} className="relative pl-10 flex items-start gap-4">
-              {/* Icône dans un cercle bien centré */}
-              <div className="absolute -left-[1.45rem] top-1/2 -translate-y-1/2">
-                <div className="w-10 h-10 bg-white border-2 border-[#1F60FF] rounded-full flex items-center justify-center text-[#1F60FF] text-lg">
-                  {slot.icon}
-                </div>
-              </div>
-
-              {/* Carte style politique avec bande à gauche */}
-              <div className="bg-white border-l-4 border-[#1F60FF] shadow-sm px-6 py-4 rounded-xl flex items-center justify-between w-full gap-4">
-
+        <div className="space-y-6">
+        {slots.map((slot) => (
+            <div key={slot.id} className="flex justify-center">
+            <div className="bg-white border-l-4 border-[#1F60FF] shadow-sm px-6 py-4 rounded-xl flex items-center justify-between w-full max-w-5xl gap-4">
                 <div className="text-base md:text-lg font-medium">
-                  {slot.start} – {slot.end}
+                {slot.start} – {slot.end}
                 </div>
-                <button className="bg-[#1F60FF] text-white px-5 py-2 text-sm font-semibold rounded-full shadow hover:scale-105 hover:bg-[#174dcc] transition whitespace-nowrap">
-                  RÉSERVER
+                <button className="bg-[#1F60FF] text-white px-5 py-2 text-sm font-semibold rounded-full shadow hover:scale-105 hover:bg-[#174dcc] transition flex items-center gap-2 whitespace-nowrap">
+                RÉSERVER <FaChevronRight size={14} />
                 </button>
-              </div>
             </div>
-          ))}
+            </div>
+        ))}
         </div>
+
 
       </div>
     </div>

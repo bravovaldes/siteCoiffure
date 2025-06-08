@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import logo from "../assets/logo.jpg";
+import logo from "../assets/logop.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,8 +23,8 @@ export default function Navbar() {
         
         {/* Logo desktop */}
         <div className="flex items-center space-x-3">
-          <img src={logo} alt="Logo" className="w-10 h-10 rounded-full shadow object-cover" />
-          <span className="font-bold text-[#1F60FF] text-lg">Salon Glamour</span>
+          <img src={logo} alt="Logo" className="w-10 h-10   object-cover" />
+          <span className="font-bold text-[#1F60FF] text-lg">Issouf Coiffure</span>
         </div>
 
         {/* Desktop nav */}

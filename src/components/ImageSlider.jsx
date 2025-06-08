@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import logo1 from '../assets/logo.jpg';
-import logo2 from '../assets/logo.jpg';
-import logo3 from '../assets/logo.jpg';
+import logo2 from '../assets/logo1.jpg';
+import logo3 from '../assets/logo2.jpg';
+import logo4 from '../assets/logo3.jpg';
+import logo5 from '../assets/logo4.jpg';
 
-const images = [logo1, logo2, logo3];
+const images = [logo1, logo2, logo3,logo4,logo5];
 
 export default function ImageSlider() {
   const [current, setCurrent] = useState(0);
@@ -28,7 +30,7 @@ export default function ImageSlider() {
 
       {/* Desktop : 3 images côte à côte */}
       <div className="hidden md:flex gap-4">
-        {[0, 1, 2].map((offset) => {
+        {[0, 1, 2,3,4,5].map((offset) => {
           const index = (current + offset) % images.length;
           return (
             <div key={index} className="w-1/3 rounded-2xl overflow-hidden shadow-md">
